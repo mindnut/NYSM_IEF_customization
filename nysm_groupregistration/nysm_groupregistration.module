@@ -7,7 +7,7 @@ function nysm_groupregistration_inline_entity_form_table_fields_alter(&$fields, 
 
 $is_group_detail = FALSE;
      foreach ($context['allowed_bundles'] as $bundle) {
-      if ($bundle=='scheduled_group_program') {
+      if ($bundle=='scheduled_group_programs') {
         $is_group_detail = TRUE;
       }
     }
@@ -18,7 +18,7 @@ $is_group_detail = FALSE;
       unset($fields['status']);    
       unset($fields['title']);                        
 // This part adds stock fields with a label '
-      $fields['field_desired_program'] = array(                   
+      $fields['field_chosen_program'] = array(                   
         'type' => 'field',
         'label' => t('Desired Program'),
         'weight' => 1
