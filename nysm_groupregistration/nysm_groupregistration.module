@@ -1,0 +1,38 @@
+<?php
+/**
+* Implements hook_inline_entity_form_table_fields_alter().
+*/
+function nysm_groupregistration_inline_entity_form_table_fields_alter(&$fields, $context) {
+    // Make sure there's a stock field on each of the allowed product types.
+
+$is_group_detail = FALSE;
+     foreach ($context['allowed_bundles'] as $bundle) {
+      if ($bundle=='scheduled_group_program') {
+        $is_group_detail = TRUE;
+      }
+    }
+    if ($is_group_detail) {
+        
+// This line removes the title field. you're looking to do this, just with the status instead of title field
+
+      unset($fields['status']);    
+      unset($fields['title']);                        
+// This part adds stock fields with a label '
+      $fields['field_desired_program'] = array(                   
+        'type' => 'field',
+        'label' => t('Desired Program'),
+        'weight' => 1
+      );     
+      $fields['field_group_leader'] = array(                   
+        'type' => 'field',
+        'label' => t('Group Chaperone'),
+        'weight' => 3
+      );     
+       $fields['field_group_grade_level'] = array(                   
+        'type' => 'field',
+        'label' => t('Grade'),
+        'weight' => 2
+      );      
+ }   
+}
+?>

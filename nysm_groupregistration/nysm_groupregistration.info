@@ -1,0 +1,5 @@
+name = NYSM Group Registration Inline Entity Form
+description = "Customization of Inline Entity Form "
+package = Fields
+dependencies[] = inline_entity_form
+core = 7.x
